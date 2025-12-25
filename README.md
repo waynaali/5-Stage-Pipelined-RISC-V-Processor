@@ -9,7 +9,7 @@ Efficient 5-stage pipelined RV32I processor with dedicated pipeline registers (I
 This repository implements a **5-stage pipelined RISC-V processor** using **SystemVerilog**, based on the **RV32I base integer instruction set**.  
 Pipelining allows multiple instructions to be processed simultaneously by dividing instruction execution into discrete stages, improving overall throughput compared to a single-cycle design.
 
-**Pipeline Stages and Functionality:**
+### Pipeline Stages and Functionality
 
 1. **IF (Instruction Fetch)**  
    - Fetches instruction from memory using the program counter (PC).  
@@ -32,7 +32,7 @@ Pipelining allows multiple instructions to be processed simultaneously by dividi
    - Writes results back to the register file.  
    - Completes instruction execution.
 
-**Pipeline Registers:**  
+### Pipeline Registers
 To maintain instruction flow between stages, the processor uses these pipeline registers:  
 - `IF/ID` – between Instruction Fetch and Decode  
 - `ID/IE` – between Decode and Execute  
@@ -52,32 +52,43 @@ This design helps in **reducing instruction execution time**, handling **data ha
 ---
 
 ## Directory Structure
-5-Stage-Pipelined-RISC-V/
+```
+
+5-Stage-Pipelined-RISC-V-Processor/
 │
-├── src/ # RTL source code files (pipeline stages, ALU, registers, control units)
-├── tb/ # Testbench files
-├── mem/ # Memory initialization files (instructions and data)
-├── docs/ # Optional documentation, diagrams, notes
-├── README.md # Project description (this file)
-└── LICENSE # License information
+├── src/              # RTL source code files
+├── tb/               # Testbench files
+├── mem/              # Memory initialization files
+├── docs/             # Optional documentation
+├── README.md         # Project description (this file)
+└── LICENSE           # License information
+
+````
 
 ---
 
 ## Getting Started
-1. Clone the repository:
+
+### 1. Clone the repository
 ```bash
-git clone https://github.com/waynaali/5-Stage-Pipelined-RISC-V.git
-cd 5-Stage-Pipelined-RISC-V
-Compile and simulate using your preferred SystemVerilog simulator:
+git clone https://github.com/waynaali/5-Stage-Pipelined-RISC-V-Processor.git
+cd 5-Stage-Pipelined-RISC-V-Processor
+````
 
-# Example with ModelSim or QuestaSim
+### 2. Compile and simulate
+
+Example with ModelSim / QuestaSim:
+
+```bash
 vlog src/*.sv tb/*.sv
-vsim tb_name   # Replace tb_name with your testbench top module
+vsim tb_top         # replace tb_top with your top-level testbench module
 run -all
+```
 
+---
 
-Observe simulation results and verify pipeline behavior.
-Author
+## Author
 
-Wayna Ali
-GitHub: waynaali
+**Wayna Ali**
+GitHub: [https://github.com/waynaali](https://github.com/waynaali)
+
