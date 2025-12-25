@@ -1,10 +1,4 @@
 # 5-Stage Pipelined RISC-V Processor (RV32I)
-
-## Short Description
-Efficient 5-stage pipelined RV32I processor with dedicated pipeline registers (IF/ID, ID/IE, IE/IM, IM/IW) implemented in SystemVerilog.
-
----
-
 ## Description
 This repository implements a **5-stage pipelined RISC-V processor** using **SystemVerilog**, based on the **RV32I base integer instruction set**.  
 Pipelining allows multiple instructions to be processed simultaneously by dividing instruction execution into discrete stages, improving overall throughput compared to a single-cycle design.
