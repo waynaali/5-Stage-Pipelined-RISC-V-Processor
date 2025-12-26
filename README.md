@@ -46,7 +46,7 @@ Suitable for:
 ### 🔷 Block Diagram
 
 ![Block Diagram](https://github.com/waynaali/5-Stage-Pipelined-RISC-V-Processor/blob/main/doc/block_diagram.png)
-![Block Diagram 2](docs/block_diagram\(2\).png)
+![Block Diagram 2](https://github.com/waynaali/5-Stage-Pipelined-RISC-V-Processor/blob/main/doc/block_diagram%20(2).png)
 
 The processor is organized into modules:
 
@@ -64,7 +64,7 @@ This modular approach simplifies debugging and future extensions.
 
 ## 🔄 5-Stage Pipeline
 
-![Pipeline Visualization](docs/Verification.png)
+![Pipeline Visualization](https://github.com/waynaali/5-Stage-Pipelined-RISC-V-Processor/blob/main/doc/verification.png)
 
 | Stage   | Description                                |
 | ------- | ------------------------------------------ |
@@ -95,8 +95,8 @@ Pipeline registers isolate each stage, allowing **concurrent execution of multip
 
 ## 📊 Simulation & Waveforms
 
-![Simulation 1](docs/Waveform.png)
-![Simulation 2](docs/Waveform\(2\).png)
+![Simulation 1](https://github.com/waynaali/5-Stage-Pipelined-RISC-V-Processor/blob/main/doc/WAVEFORM.png)
+![Simulation 2](https://github.com/waynaali/5-Stage-Pipelined-RISC-V-Processor/blob/main/doc/waveform%20(2).png)
 
 Waveforms confirm:
 
