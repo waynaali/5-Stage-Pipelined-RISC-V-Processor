@@ -1,6 +1,6 @@
 # 5-Stage Pipelined RISC-V Processor
 
-![GitHub license](https://img.shields.io/github/license/waynaali/5-Stage-Pipelined-RISC-V-Processor)
+![GitHub license](LICENSE)
 ![GitHub top language](https://img.shields.io/github/languages/top/waynaali/5-Stage-Pipelined-RISC-V-Processor)
 ![GitHub last commit](https://img.shields.io/github/last-commit/waynaali/5-Stage-Pipelined-RISC-V-Processor)
 
