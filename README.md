@@ -6,15 +6,14 @@
 [![Forks](https://img.shields.io/github/forks/waynaali/5-Stage-Pipelined-RISC-V-Processor?style=social)](https://github.com/waynaali/5-Stage-Pipelined-RISC-V-Processor/network/members)
 [![Open Issues](https://img.shields.io/github/issues/waynaali/5-Stage-Pipelined-RISC-V-Processor)](https://github.com/waynaali/5-Stage-Pipelined-RISC-V-Processor/issues)
 
-A **SystemVerilog implementation of a 5-stage pipelined RISC-V CPU** (RV32I) with **hazard handling**, intended for **educational purposes**. This design is fully compatible with **Xilinx Vivado**.
+A **SystemVerilog implementation of a 5-stage pipelined RISC-V CPU** (RV32I), intended for **educational purposes**. This design is fully compatible with **Xilinx Vivado**.
 
 ---
 
 ## Features
 
 - 5-stage pipeline: IF → ID → EX → MEM → WB
-- Supports RV32I instructions: ADD, SUB, ADDI, AND, OR, LW, SW, BEQ, BNE
-- Forwarding and stall units for hazard resolution
+- Supports RV32I instructions: ADD, SUB, ADDI, AND, OR, SW, BEQ, BNE
 - Pipeline registers for concurrent instruction execution
 - Designed in **SystemVerilog** for Vivado FPGA simulation/synthesis
 
@@ -97,7 +96,7 @@ vvp sim.out
 | ---------- | ------------------ |
 | Arithmetic | ADD, SUB, ADDI     |
 | Logic      | AND, OR, XOR, ANDI |
-| Memory     | LW, SW             |
+| Memory     | SW             |
 | Shift      | SLL, SRL, SRA      |
 | Branch     | BEQ, BNE           |
 
