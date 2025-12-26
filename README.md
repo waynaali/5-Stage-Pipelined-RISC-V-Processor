@@ -6,9 +6,7 @@
 [![Forks](https://img.shields.io/github/forks/waynaali/5-Stage-Pipelined-RISC-V-Processor?style=social)](https://github.com/waynaali/5-Stage-Pipelined-RISC-V-Processor/network/members)
 [![Open Issues](https://img.shields.io/github/issues/waynaali/5-Stage-Pipelined-RISC-V-Processor)](https://github.com/waynaali/5-Stage-Pipelined-RISC-V-Processor/issues)
 
-A **SystemVerilog implementation of a 5-stage pipelined RISC-V CPU** based on the RV32I instruction set.
-
-This repository demonstrates a classic **5-stage pipeline with hazard handling** and is intended for **educational purposes**.
+A **SystemVerilog implementation of a 5-stage pipelined RISC-V CPU** (RV32I) with **hazard handling**, intended for **educational purposes**. This design is fully compatible with **Xilinx Vivado**.
 
 ---
 
@@ -17,7 +15,8 @@ This repository demonstrates a classic **5-stage pipeline with hazard handling**
 - 5-stage pipeline: IF → ID → EX → MEM → WB
 - Supports RV32I instructions: ADD, SUB, ADDI, AND, OR, LW, SW, BEQ, BNE
 - Forwarding and stall units for hazard resolution
-- Pipeline registers for concurrent execution
+- Pipeline registers for concurrent instruction execution
+- Designed in **SystemVerilog** for Vivado FPGA simulation/synthesis
 
 ---
 
@@ -35,7 +34,7 @@ This repository demonstrates a classic **5-stage pipeline with hazard handling**
        └─────┬────┘
              ↓
        ┌──────────┐
-       │ EX Stage │  ← execute/ALU ops
+       │ EX Stage │  ← execute/ALU operations
        └─────┬────┘
              ↓
        ┌──────────┐
@@ -49,7 +48,7 @@ This repository demonstrates a classic **5-stage pipeline with hazard handling**
 
 ```
 
-> In a pipelined design, multiple instructions are **executed concurrently**, one per stage per clock cycle.
+> Multiple instructions are executed **concurrently**, one per pipeline stage per clock cycle.
 
 ---
 
@@ -58,33 +57,37 @@ This repository demonstrates a classic **5-stage pipeline with hazard handling**
 ```
 
 ├── src
-│   ├── if_stage.v
-│   ├── id_stage.v
-│   ├── ex_stage.v
-│   ├── mem_stage.v
-│   ├── wb_stage.v
-│   ├── register_file.v
-│   ├── control_unit.v
+│   ├── IF_ID.sv
+│   ├── ID_IE.sv
+│   ├── IE_IM.sv
+│   ├── IM_IW.sv
+│   ├── register_file.sv
+│   ├── control_unit.sv
 │   └── ...
 ├── tb
-│   └── testbench.v
+│   └tb.sv
 ├── docs
 │   └── design_overview.pdf
 └── README.md
 
 ````
 
+> All design files are in **SystemVerilog (.sv)** format compatible with Vivado.
+
 ---
 
-## Simulation
+## Simulation / Running in Vivado
+
+1. **Create a new project** in Vivado.  
+2. **Add all `.sv` files** from `src/` and `tb/` to the project.  
+3. **Set the top module** as `testbench.sv` for simulation.  
+4. **Run simulation** and observe waveform in Vivado.  
 
 ```bash
-# Compile and run the simulation
-iverilog -o sim.out src/*.v tb/testbench.v
+# Optional: Using Icarus Verilog for SV simulation
+iverilog -g2012 -o sim.out src/*.sv tb/testbench.sv
 vvp sim.out
 ````
-
-Open GTKWave to view waveforms and verify pipeline execution.
 
 ---
 
@@ -102,8 +105,8 @@ Open GTKWave to view waveforms and verify pipeline execution.
 
 ## Requirements
 
-* Verilog/SystemVerilog simulator (Icarus Verilog, ModelSim, Verilator)
-* Optional: FPGA toolchain (Vivado, Quartus)
+* **Vivado** for simulation/synthesis
+* SystemVerilog simulator (Icarus Verilog, ModelSim) optional
 * RISC-V assembler for testing programs
 
 ---
@@ -118,6 +121,3 @@ MIT License – see [LICENSE](LICENSE)
 
 Inspired by *Digital Design and Computer Architecture, RISC‑V Edition* by Sarah L. Harris and David Harris
 Also see [Single-Cycle RISC-V](https://github.com/waynaali/Single-Cycle-RISC-V)
-
-Do you want me to do that next?
-```
