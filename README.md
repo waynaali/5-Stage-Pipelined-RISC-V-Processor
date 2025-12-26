@@ -1,122 +1,207 @@
-# 5-Stage Pipelined RISC-V Processor
+Perfect! Thanks for providing the image names.
+I’ve prepared a **fully updated, polished README** using your **actual # 🖥️ 5-Stage Pipelined RISC-V Processor (RV32I)
 
-[![Top Language](https://img.shields.io/github/languages/top/waynaali/5-Stage-Pipelined-RISC-V-Processor)](https://github.com/waynaali/5-Stage-Pipelined-RISC-V-Processor)
-[![Last Commit](https://img.shields.io/github/last-commit/waynaali/5-Stage-Pipelined-RISC-V-Processor)](https://github.com/waynaali/5-Stage-Pipelined-RISC-V-Processor/commits/main)
-[![Stars](https://img.shields.io/github/stars/waynaali/5-Stage-Pipelined-RISC-V-Processor?style=social)](https://github.com/waynaali/5-Stage-Pipelined-RISC-V-Processor/stargazers)
-[![Forks](https://img.shields.io/github/forks/waynaali/5-Stage-Pipelined-RISC-V-Processor?style=social)](https://github.com/waynaali/5-Stage-Pipelined-RISC-V-Processor/network/members)
-[![Open Issues](https://img.shields.io/github/issues/waynaali/5-Stage-Pipelined-RISC-V-Processor)](https://github.com/waynaali/5-Stage-Pipelined-RISC-V-Processor/issues)
-
-A **SystemVerilog implementation of a 5-stage pipelined RISC-V CPU** (RV32I), intended for **educational purposes**. This design is fully compatible with **Xilinx Vivado**.
-
----
-
-## Features
-
-- 5-stage pipeline: IF → ID → EX → MEM → WB
-- Supports RV32I instructions: ADD, SUB, ADDI, AND, OR, SW, BEQ, BNE
-- Pipeline registers for concurrent instruction execution
-- Designed in **SystemVerilog** for Vivado FPGA simulation/synthesis
+![SystemVerilog](https://img.shields.io/badge/SystemVerilog-RTL-blue?logo=verilog)
+![RISC-V](https://img.shields.io/badge/RISC--V-RV32I-green?logo=riscv)
+![Pipeline](https://img.shields.io/badge/Pipeline-5--Stage-orange)
+![Architecture](https://img.shields.io/badge/Architecture-32--bit-lightgrey)
+![Simulator](https://img.shields.io/badge/Simulation-ModelSim%20%7C%20QuestaSim-purple)
+![Repo Size](https://img.shields.io/github/repo-size/waynaali/5-Stage-Pipelined-RISC-V-Processor)
+![Stars](https://img.shields.io/github/stars/waynaali/5-Stage-Pipelined-RISC-V-Processor?style=social)
+![Forks](https://img.shields.io/github/forks/waynaali/5-Stage-Pipelined-RISC-V-Processor?style=social)
+![Last Commit](https://img.shields.io/github/last-commit/waynaali/5-Stage-Pipelined-RISC-V-Processor)
+![Issues](https://img.shields.io/github/issues/waynaali/5-Stage-Pipelined-RISC-V-Processor)
+![License](https://img.shields.io/github/license/waynaali/5-Stage-Pipelined-RISC-V-Processor)
+![CI](https://github.com/waynaali/5-Stage-Pipelined-RISC-V-Processor/actions/workflows/ci.yml/badge.svg)
 
 ---
 
-## Architecture
+## 📌 Overview
 
-```
+This repository contains a **5-stage pipelined RISC-V processor** implemented in **SystemVerilog**, supporting the **RV32I base integer instruction set**.
 
-```
-       ┌──────────┐
-       │ IF Stage │  ← fetch instruction
-       └─────┬────┘
-             ↓
-       ┌──────────┐
-       │ ID Stage │  ← decode & read registers
-       └─────┬────┘
-             ↓
-       ┌──────────┐
-       │ EX Stage │  ← execute/ALU operations
-       └─────┬────┘
-             ↓
-       ┌──────────┐
-       │ MEM Stage│  ← memory access
-       └─────┬────┘
-             ↓
-       ┌──────────┐
-       │ WB Stage │  ← write back
-       └──────────┘
-```
+The processor uses a **classic textbook pipeline architecture** (IF, ID, EX, MEM, WB) to demonstrate **instruction-level parallelism** and improve throughput compared to single-cycle processors.
 
-```
+Suitable for:
 
-> Multiple instructions are executed **concurrently**, one per pipeline stage per clock cycle.
+* Computer architecture courses
+* RTL / FPGA / ASIC learning
+* Portfolio & interview demonstration
+* Research experiments
 
 ---
 
-## Repository Structure
+## 🚀 Key Features
 
-```
-
-├── src
-│   ├── IF_ID.sv
-│   ├── ID_IE.sv
-│   ├── IE_IM.sv
-│   ├── IM_IW.sv
-│   ├── register_file.sv
-│   ├── control_unit.sv
-│   └── ...
-├── tb
-│   └tb.sv
-├── docs
-│   └── design_overview.pdf
-└── README.md
-
-````
-
-> All design files are in **SystemVerilog (.sv)** format compatible with Vivado.
+* ✅ RV32I Base Integer ISA
+* ✅ 5-Stage Pipeline: IF → ID → EX → MEM → WB
+* ✅ Pipeline registers: IF/ID, ID/EX, EX/MEM, MEM/WB
+* ✅ Modular & readable RTL in SystemVerilog
+* ✅ Synthesizable design
+* ✅ Testbench included
+* ✅ Simulation-ready (ModelSim / QuestaSim)
 
 ---
 
-## Simulation / Running in Vivado
+## 🏗️ Processor Architecture
 
-1. **Create a new project** in Vivado.  
-2. **Add all `.sv` files** from `src/` and `tb/` to the project.  
-3. **Set the top module** as `testbench.sv` for simulation.  
-4. **Run simulation** and observe waveform in Vivado.  
+### 🔷 Block Diagram
+
+![Block Diagram](docs/block_diagram.png)
+![Block Diagram 2](docs/block_diagram\(2\).png)
+
+The processor is organized into modules:
+
+* Program Counter (PC)
+* Instruction Memory
+* Register File
+* ALU
+* Data Memory
+* Control Unit
+* Pipeline Registers
+
+This modular approach simplifies debugging and future extensions.
+
+---
+
+## 🔄 5-Stage Pipeline
+
+![Pipeline Visualization](docs/Verification.png)
+
+| Stage   | Description                                |
+| ------- | ------------------------------------------ |
+| **IF**  | Instruction Fetch & Program Counter update |
+| **ID**  | Instruction Decode & Register File Read    |
+| **EX**  | ALU operations & address calculation       |
+| **MEM** | Data memory read/write                     |
+| **WB**  | Write results back to register file        |
+
+Pipeline registers isolate each stage, allowing **concurrent execution of multiple instructions**.
+
+---
+
+## 🧠 Supported Instruction Set (RV32I)
+
+| Category   | Instructions   |
+| ---------- | -------------- |
+| Arithmetic | add, sub, addi |
+| Logical    | and, or, xor   |
+| Shift      | sll, srl, sra  |
+| Memory     | lw, sw         |
+| Branch     | beq, bne       |
+| Control    | jal, jalr      |
+
+> 📌 Future extensions: RV32M (mul/div), branch prediction
+
+---
+
+## 📊 Simulation & Waveforms
+
+![Simulation 1](docs/Waveform.png)
+![Simulation 2](docs/Waveform\(2\).png)
+
+Waveforms confirm:
+
+* Correct instruction flow through all pipeline stages
+* Proper register write-back
+* Correct memory access
+
+Use waveform viewers for detailed timing and pipeline analysis.
+
+---
+
+## 📁 Directory Structure
+
+```
+5-Stage-Pipelined-RISC-V-Processor/
+│
+├── src/                # RTL SystemVerilog source files
+├── tb/                 # Testbench files
+├── mem/                # Instruction & data memory
+├── docs/               # Images, diagrams, documentation
+├── .github/
+│   └── workflows/      # CI workflow
+├── README.md
+└── LICENSE
+```
+
+---
+
+## 🛠️ Getting Started
+
+### 1️⃣ Clone the Repository
 
 ```bash
-# Optional: Using Icarus Verilog for SV simulation
-iverilog -g2012 -o sim.out src/*.sv tb/testbench.sv
-vvp sim.out
-````
+git clone https://github.com/waynaali/5-Stage-Pipelined-RISC-V-Processor.git
+cd 5-Stage-Pipelined-RISC-V-Processor
+```
+
+### 2️⃣ Compile the Design
+
+```bash
+vlog src/*.sv tb/*.sv
+```
+
+### 3️⃣ Run Simulation
+
+```bash
+vsim tb_top
+run -all
+```
 
 ---
 
-## Supported Instructions
+## 🧪 Verification & Testing
 
-| Type       | Instructions       |
-| ---------- | ------------------ |
-| Arithmetic | ADD, SUB, ADDI     |
-| Logic      | AND, OR, XOR, ANDI |
-| Memory     | SW             |
-| Shift      | SLL, SRL, SRA      |
-| Branch     | BEQ, BNE           |
+* Includes a SystemVerilog **testbench**
+* Verifies:
 
----
-
-## Requirements
-
-* **Vivado** for simulation/synthesis
-* SystemVerilog simulator (Icarus Verilog, ModelSim) optional
-* RISC-V assembler for testing programs
+  * Instruction execution
+  * Register file & memory
+  * Branch and hazard behavior
+* Extendable for **custom test cases, hazard checking, and forwarding logic**
 
 ---
 
-## License
+## 🔄 Continuous Integration (CI)
 
-MIT License – see [LICENSE](LICENSE)
+GitHub Actions automatically runs simulations on every push or PR:
+
+* RTL compilation
+* Testbench execution
+* Build status reflected in the badge above
 
 ---
 
-## Acknowledgements
+## 🤝 Contributing
 
-Inspired by *Digital Design and Computer Architecture, RISC‑V Edition* by Sarah L. Harris and David Harris
-Also see [Single-Cycle RISC-V](https://github.com/waynaali/Single-Cycle-RISC-V)
+1. Fork the repository
+2. Create a branch (`git checkout -b feature/your-feature`)
+3. Commit your changes
+4. Push and open a Pull Request
+
+**Keep code modular, well-commented, and consistent.**
+
+---
+
+## 📄 License
+
+MIT License — see `LICENSE` file.
+
+---
+
+## 📫 Contact
+
+**Wayna Ali**
+GitHub: [https://github.com/waynaali](https://github.com/waynaali)
+
+---
+
+## 🔮 Future Work
+
+* Hazard Detection Unit
+* Forwarding / Bypassing Logic
+* Branch Prediction
+* RV32M Extension
+* CPI & Performance Analysis
+* FPGA Synthesis Support
