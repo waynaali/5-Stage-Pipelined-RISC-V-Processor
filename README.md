@@ -1,104 +1,97 @@
-# 🧠 5-Stage Pipelined RISC-V Processor (RV32I)
+## ✅ Paste this **full README.md** into your repository
+
+```markdown
+# 🧠 5‑Stage Pipelined RISC‑V Processor (RV32I)
+
+![Block Diagram](./doc/block_diagram.png)
+*Overall architecture of the 5‑stage pipelined RISC‑V processor.*
 
 [![GitHub stars](https://img.shields.io/github/stars/waynaali/5-Stage-Pipelined-RISC-V-Processor)](https://github.com/waynaali/5-Stage-Pipelined-RISC-V-Processor/stargazers)
-[![GitHub issues](https://img.shields.io/github/issues/waynaali/5-Stage-Pipelined-RISC-V-Processor)](https://github.com/waynaali/5-Stage-Pipelined-RISC-V-Processor/issues)
-[![License](https://img.shields.io/github/license/waynaali/5-Stage-Pipelined-RISC-V-Processor)](LICENSE)
+[![License: MIT](https://img.shields.io/github/license/waynaali/5-Stage-Pipelined-RISC-V-Processor)](./LICENSE)
 
-This repository implements a **5-stage pipelined RISC-V processor** in **SystemVerilog**, based on the classic computer architecture pipeline architecture (IF → ID → EX → MEM → WB).
-
----
-
-## 🚀 Project Summary
-
-This project demonstrates an RTL design of a **pipelined RISC-V processor** that processes multiple instructions in parallel by dividing execution into five stages. It includes:
-
-🟢 Instruction Fetch (IF)  
-🟡 Instruction Decode (ID)  
-🔵 Execute (EX)  
-🔴 Memory Access (MEM)  
-🟣 Write Back (WB)
-
-> 💡 Compared to a single-cycle implementation, pipelining improves throughput by overlapping instruction execution without requiring additional hardware for every instruction cycle.
+This repository implements a **5‑stage pipelined RISC‑V (RV32I)** processor in **SystemVerilog** with standard pipeline registers between every stage to increase instruction throughput compared to a single‑cycle design. Pipelining allows instructions to overlap in execution, improving performance.
 
 ---
 
-## 🧱 Pipeline Stages Explained
+## 🚀 Pipeline Overview
 
-| Stage | Purpose |
-|-------|---------|
-| **IF** | Fetch instruction from instruction memory |
-| **ID** | Decode instruction & read registers |
-| **EX** | Execute ALU operations |
-| **MEM** | Access data memory |
-| **WB** | Write back result into register file |
+The processor breaks instruction execution into *five stages*, each done by dedicated logic with intermediate registers.
 
 ---
 
-## 📁 Directory Structure
+### 🔁 Pipeline Stages
+
+| Stage | Description |
+|-------|-------------|
+| **IF**  | Instruction Fetch — fetches instruction from instruction memory |
+| **ID**  | Instruction Decode — decodes instruction, reads registers |
+| **EX**  | Execute — ALU operations and address calculation |
+| **MEM** | Memory Access — load/store data memory |
+| **WB**  | Write Back — writes results back to register file |
+
+---
+
+## 🧩 Pipeline Diagram
+
+Below is a visual representation of how instructions flow through the pipeline:
+
+![Verification](./doc/verification.png)
+*Pipeline schematic and register connections.*
+
+---
+
+## 📊 Waveforms
+
+Here is a typical simulation showing multiple instructions progressing through the pipeline:
+
+![Waveform](./doc/waveform%20(2).png)
+*Example waveform showing IF, ID, EX, MEM, WB stages in simulation.*
+
+---
+
+## 📁 Folder Structure
 
 ```
 
-5-Stage-Pipelined-RISC-V-Processor/
-├── doc/                  # Block diagrams, waveforms, verification images
-├── srcs/                 # All SystemVerilog source files
-├── tb/                   # Testbench files
+5‑Stage‑Pipelined‑RISC‑V‑Processor/
+│
+├── doc/                  # Block diagrams, waveforms, verification visuals
+├── srcs/                 # SystemVerilog source files
+├── tb/                   # Testbench files for simulation
 ├── README.md             # This documentation
-└── .gitignore
+└── LICENSE               # License information
 
 ````
 
 ---
 
-## ⚙️ Features
-
-✔ Implements RV32I ISA base subset  
-✔ 5 pipeline stages (IF, ID, EX, MEM, WB)  
-✔ Forwarding & hazard handling  
-✔ Modular RTL design  
-✔ Testbench for simulation
-
----
-
-## 🛠 How to Use (Simulation)
+## 🛠️ How to Simulate
 
 1. Clone the repository:
 
-```bash
-git clone https://github.com/waynaali/5-Stage-Pipelined-RISC-V-Processor.git
-cd 5-Stage-Pipelined-RISC-V-Processor
-````
+    ```bash
+    git clone https://github.com/waynaali/5-Stage-Pipelined-RISC-V-Processor.git
+    cd 5-Stage-Pipelined-RISC-V-Processor
+    ```
 
-2. Compile using your simulator (ModelSim/Questa):
+2. Compile & simulate (example ModelSim/Questa):
 
-```bash
-vlog srcs/*.sv tb/*.sv
-vsim tb
-run -all
-```
-
----
-
-## 📸 Waveforms & Docs
-
-Check `doc/` for:
-
-📌 Pipeline diagrams
-📌 Simulation waveforms
-📌 Verification screenshots
-
-These help visualize hazards, forwarding, and register updates.
+    ```bash
+    vlog srcs/*.sv tb/*.sv
+    vsim tb
+    run -all
+    ```
 
 ---
 
 ## 📜 License
 
-This project is licensed under the **MIT License** — see **LICENSE** for details.
-Feel free to reuse and build upon this work! ([GitHub][1])
+This project is licensed under the **MIT License** — see `LICENSE` for details.
 
 ---
 
-## 🙌 Acknowledgments
+## 🙌 About
 
-✔ Inspired by RISC-V pipeline design concepts
-✔ Based on open documentation and computer architecture texts
-✔ Thank you for exploring this implementation!
+**Wayna Ali** — SystemVerilog implementation of a 5‑stage pipelined RISC‑V processor.
+
+GitHub: https://github.com/waynaali/5-Stage-Pipelined-RISC-V-Processor
