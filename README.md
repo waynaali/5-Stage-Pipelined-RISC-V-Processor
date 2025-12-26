@@ -1,27 +1,25 @@
-# 5‑Stage Pipelined RISC‑V Processor
+# 5-Stage Pipelined RISC-V Processor
 
 ![GitHub license](https://img.shields.io/github/license/waynaali/5-Stage-Pipelined-RISC-V-Processor)
 ![GitHub top language](https://img.shields.io/github/languages/top/waynaali/5-Stage-Pipelined-RISC-V-Processor)
 ![GitHub last commit](https://img.shields.io/github/last-commit/waynaali/5-Stage-Pipelined-RISC-V-Processor)
 
-A **SystemVerilog implementation of a 5‑stage pipelined RISC‑V CPU** based on the RV32I instruction set.
+A **SystemVerilog implementation of a 5-stage pipelined RISC-V CPU** based on the RV32I instruction set.
 
-This repository demonstrates a classic 5‑stage pipeline with hazard handling and is intended for **educational purposes**.
+This repository demonstrates a classic **5-stage pipeline with hazard handling** and is intended for **educational purposes**.
 
 ---
 
 ## Features
 
-- 5‑stage pipeline: IF → ID → EX → MEM → WB  
-- Supports RV32I instructions: ADD, SUB, ADDI, AND, OR, LW, SW, BEQ, BNE, etc.  
-- Pipeline registers between stages for concurrent execution  
-- Forwarding and stall units for hazard resolution  
+* 5-stage pipeline: IF → ID → EX → MEM → WB
+* Supports RV32I instructions: ADD, SUB, ADDI, AND, OR, LW, SW, BEQ, BNE
+* Forwarding and stall units for hazard resolution
+* Pipeline registers for concurrent execution
 
 ---
 
 ## Architecture
-
-```
 
 ```
                ┌──────────┐
@@ -29,7 +27,7 @@ This repository demonstrates a classic 5‑stage pipeline with hazard handling a
                └─────┬────┘
                      ↓
                ┌──────────┐
-               │ ID Stage │  ← decode instruction
+               │ ID Stage │  ← decode & read registers
                └─────┬────┘
                      ↓
                ┌──────────┐
@@ -37,25 +35,21 @@ This repository demonstrates a classic 5‑stage pipeline with hazard handling a
                └─────┬────┘
                      ↓
                ┌──────────┐
-               │ MEM Stage│  ← load/store
+               │ MEM Stage│  ← memory access
                └─────┬────┘
                      ↓
                ┌──────────┐
-               │ WB Stage │  ← write results
+               │ WB Stage │  ← write back
                └──────────┘
 ```
 
-```
-
-> ![Pipeline Diagram](https://user-images.githubusercontent.com/your-username/pipeline-diagram.png)  
-> *(Replace with your actual pipeline diagram)*
+> Note: In a pipelined design, multiple instructions are **executed concurrently**, one per stage per clock cycle.
 
 ---
 
 ## Repository Structure
 
 ```
-
 ├── src
 │   ├── if_stage.v
 │   ├── id_stage.v
@@ -70,8 +64,7 @@ This repository demonstrates a classic 5‑stage pipeline with hazard handling a
 ├── docs
 │   └── design_overview.pdf
 └── README.md
-
-````
+```
 
 ---
 
@@ -81,9 +74,9 @@ This repository demonstrates a classic 5‑stage pipeline with hazard handling a
 # Compile and run
 iverilog -o sim.out src/*.v tb/testbench.v
 vvp sim.out
-````
+```
 
-View the waveform (GTKWave) to verify pipeline execution.
+View waveforms in GTKWave to verify pipeline execution.
 
 ---
 
@@ -103,7 +96,7 @@ View the waveform (GTKWave) to verify pipeline execution.
 
 * Verilog/SystemVerilog simulator (Icarus Verilog, ModelSim, Verilator)
 * Optional: FPGA toolchain (Vivado, Quartus)
-* RISC‑V assembler for testing programs
+* RISC-V assembler for testing programs
 
 ---
 
@@ -116,3 +109,4 @@ MIT License – see [LICENSE](LICENSE)
 ## Acknowledgements
 
 Inspired by *Digital Design and Computer Architecture, RISC‑V Edition* by Sarah L. Harris and David Harris
+[https://github.com/waynaali/Single-Cycle-RISC-V](https://github.com/waynaali/Single-Cycle-RISC-V)
