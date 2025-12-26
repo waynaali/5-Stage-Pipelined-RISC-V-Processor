@@ -11,7 +11,6 @@
 ![Last Commit](https://img.shields.io/github/last-commit/waynaali/5-Stage-Pipelined-RISC-V-Processor)
 ![Issues](https://img.shields.io/github/issues/waynaali/5-Stage-Pipelined-RISC-V-Processor)
 ![License](https://img.shields.io/github/license/waynaali/5-Stage-Pipelined-RISC-V-Processor)
-![CI](https://github.com/waynaali/5-Stage-Pipelined-RISC-V-Processor/actions/workflows/ci.yml/badge.svg)
 
 ---
 
@@ -46,7 +45,7 @@ Suitable for:
 
 ### 🔷 Block Diagram
 
-![Block Diagram](docs/block_diagram.png)
+![Block Diagram](https://github.com/waynaali/5-Stage-Pipelined-RISC-V-Processor/blob/main/doc/block_diagram.png)
 ![Block Diagram 2](docs/block_diagram\(2\).png)
 
 The processor is organized into modules:
