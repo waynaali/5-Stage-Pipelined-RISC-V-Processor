@@ -1,5 +1,4 @@
-Perfect! Thanks for providing the image names.
-I’ve prepared a **fully updated, polished README** using your **actual # 🖥️ 5-Stage Pipelined RISC-V Processor (RV32I)
+ # 🖥️ 5-Stage Pipelined RISC-V Processor (RV32I)
 
 ![SystemVerilog](https://img.shields.io/badge/SystemVerilog-RTL-blue?logo=verilog)
 ![RISC-V](https://img.shields.io/badge/RISC--V-RV32I-green?logo=riscv)
