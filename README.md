@@ -1,8 +1,8 @@
 # 5-Stage Pipelined RISC-V Processor
 
-![GitHub license](https://github.com/waynaali/5-Stage-Pipelined-RISC-V-Processor/blob/main/LICENSE)
-![GitHub top language](https://img.shields.io/github/languages/top/waynaali/5-Stage-Pipelined-RISC-V-Processor)
-![GitHub last commit](https://img.shields.io/github/last-commit/waynaali/5-Stage-Pipelined-RISC-V-Processor)
+[![License](https://img.shields.io/github/license/waynaali/5-Stage-Pipelined-RISC-V-Processor)](LICENSE)
+[![Top Language](https://img.shields.io/github/languages/top/waynaali/5-Stage-Pipelined-RISC-V-Processor)](https://github.com/waynaali/5-Stage-Pipelined-RISC-V-Processor)
+[![Last Commit](https://img.shields.io/github/last-commit/waynaali/5-Stage-Pipelined-RISC-V-Processor)](https://github.com/waynaali/5-Stage-Pipelined-RISC-V-Processor/commits/main)
 
 A **SystemVerilog implementation of a 5-stage pipelined RISC-V CPU** based on the RV32I instruction set.
 
@@ -21,27 +21,25 @@ This repository demonstrates a classic **5-stage pipeline with hazard handling**
 
 ## Architecture
 
-```
-               ┌──────────┐
-               │ IF Stage │  ← fetch instruction
-               └─────┬────┘
-                     ↓
-               ┌──────────┐
-               │ ID Stage │  ← decode & read registers
-               └─────┬────┘
-                     ↓
-               ┌──────────┐
-               │ EX Stage │  ← execute/ALU ops
-               └─────┬────┘
-                     ↓
-               ┌──────────┐
-               │ MEM Stage│  ← memory access
-               └─────┬────┘
-                     ↓
-               ┌──────────┐
-               │ WB Stage │  ← write back
-               └──────────┘
-```
+           ┌──────────┐
+           │ IF Stage │  ← fetch instruction
+           └─────┬────┘
+                 ↓
+           ┌──────────┐
+           │ ID Stage │  ← decode & read registers
+           └─────┬────┘
+                 ↓
+           ┌──────────┐
+           │ EX Stage │  ← execute/ALU ops
+           └─────┬────┘
+                 ↓
+           ┌──────────┐
+           │ MEM Stage│  ← memory access
+           └─────┬────┘
+                 ↓
+           ┌──────────┐
+           │ WB Stage │  ← write back
+           └──────────┘
 
 > Note: In a pipelined design, multiple instructions are **executed concurrently**, one per stage per clock cycle.
 
@@ -49,22 +47,20 @@ This repository demonstrates a classic **5-stage pipeline with hazard handling**
 
 ## Repository Structure
 
-```
 ├── src
-│   ├── if_stage.v
-│   ├── id_stage.v
-│   ├── ex_stage.v
-│   ├── mem_stage.v
-│   ├── wb_stage.v
-│   ├── register_file.v
-│   ├── control_unit.v
-│   └── ...
+│ ├── if_stage.v
+│ ├── id_stage.v
+│ ├── ex_stage.v
+│ ├── mem_stage.v
+│ ├── wb_stage.v
+│ ├── register_file.v
+│ ├── control_unit.v
+│ └── ...
 ├── tb
-│   └── testbench.v
+│ └── testbench.v
 ├── docs
-│   └── design_overview.pdf
+│ └── design_overview.pdf
 └── README.md
-```
 
 ---
 
@@ -74,13 +70,7 @@ This repository demonstrates a classic **5-stage pipeline with hazard handling**
 # Compile and run
 iverilog -o sim.out src/*.v tb/testbench.v
 vvp sim.out
-```
-
 View waveforms in GTKWave to verify pipeline execution.
-
----
-
-## Supported Instructions
 
 | Type       | Instructions       |
 | ---------- | ------------------ |
@@ -90,23 +80,18 @@ View waveforms in GTKWave to verify pipeline execution.
 | Shift      | SLL, SRL, SRA      |
 | Branch     | BEQ, BNE           |
 
----
 
-## Requirements
+Verilog/SystemVerilog simulator (Icarus Verilog, ModelSim, Verilator)
 
-* Verilog/SystemVerilog simulator (Icarus Verilog, ModelSim, Verilator)
-* Optional: FPGA toolchain (Vivado, Quartus)
-* RISC-V assembler for testing programs
+Optional: FPGA toolchain (Vivado, Quartus)
 
----
+RISC-V assembler for testing programs
 
-## License
+License
 
-MIT License – see [LICENSE](LICENSE)
+MIT License – see LICENSE
 
----
+Acknowledgements
 
-## Acknowledgements
-
-Inspired by *Digital Design and Computer Architecture, RISC‑V Edition* by Sarah L. Harris and David Harris
-[https://github.com/waynaali/Single-Cycle-RISC-V](https://github.com/waynaali/Single-Cycle-RISC-V)
+Inspired by Digital Design and Computer Architecture, RISC‑V Edition by Sarah L. Harris and David Harris
+Single-Cycle RISC-V
